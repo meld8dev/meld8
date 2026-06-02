@@ -64,13 +64,6 @@ Meld8は、通常のトランプを用いた麻雀風のオリジナル・メル
 
 起動後、ターミナルに表示されるURL（例: http://localhost:8000 ）にブラウザでアクセスしてください。
 
-#### 3. GitHub Pages向けのビルド手順
-
-    # スタティックファイルの生成（build/web フォルダが生成されます）
-    pygbag --build .
-
-生成された build/web ディレクトリ内のすべてのファイルを、GitHubリポジトリのデプロイ用ブランチ（gh-pages ブランチ、または main ブランチの /docs フォルダなど）に配置することで、GitHub Pages上でWebアプリケーションとして公開できます。
-
 ### 今後の展開（Androidアプリ化について）
 
 現在、本Webアプリケーション（pygbag環境）をWebView化し、モバイル端末で動作するAndroidアプリとしての配信を準備中です。なお、同Androidアプリ内には広告（マネタイズ要素）を導入する予定です。
@@ -153,13 +146,6 @@ To display text and Japanese characters correctly, this game requires the **Noto
     pygbag .
 
 Open your browser and navigate to the provided local URL (e.g., http://localhost:8000).
-
-#### 3. Build for GitHub Pages Deployment
-
-    # Build the WebAssembly static files (generates a build/web folder)
-    pygbag --build .
-
-Deploy the contents of the generated build/web directory to your GitHub Pages repository branch to publish your game online.
 
 ### Future Roadmap (Android Application)
 
