@@ -262,7 +262,7 @@ class TrumpMahjongGUI:
             sound.sm.play('action')
             self.tsumo_agari_sound_played = True
 
-        if self.phase in ["TITLE", "DEALER_DRAW", "AGARI_SHOW", "ROUND_END", "GAME_OVER", "ACTION_WAIT", "QUIT_CONFIRM", "COMBO_SELECT", "TSUMO_AGARI_WAIT", "FINAL_ROUND_ALERT"]: 
+        if self.phase in ["TITLE", "DEALER_DRAW", "AGARI_SHOW", "ROUND_END", "GAME_OVER", "ACTION_WAIT", "QUIT_CONFIRM", "COMBO_SELECT", "TSUMO_AGARI_WAIT", "FINAL_ROUND_ALERT", "HALTED"]: 
             return
 
         if self.phase == "TSUMO" and len(self.deck) == 0:
@@ -510,6 +510,9 @@ class TrumpMahjongGUI:
         return self.player_names[idx - 1]
 
     def handle_click(self, pos):
+        if self.phase == "HALTED":
+            return
+            
         if getattr(self, "show_guide", False):
             if self.button_rects.get("CLOSE_GUIDE") and self.button_rects["CLOSE_GUIDE"].collidepoint(pos):
                 sound.sm.play('action'); self.show_guide = False
@@ -551,6 +554,7 @@ class TrumpMahjongGUI:
         if self.phase == "QUIT_CONFIRM":
             if self.button_rects.get("CONFIRM_YES") and self.button_rects["CONFIRM_YES"].collidepoint(pos):
                 if is_web:
+                    self.phase = "HALTED"
                     try:
                         import js
                         js.window.eval("window.close();")
@@ -691,6 +695,16 @@ class TrumpMahjongGUI:
         self.draw_button(config.MSG["GUIDE_CLOSE"][config.LANG], pygame.Rect(px + (pw - config.S(250)) // 2, py + ph - config.S(90), config.S(250), config.S(60)), pos, "CLOSE_GUIDE", config.QUIT_BUTTON_COLOR, config.QUIT_BUTTON_HOVER)
 
     def draw_screen(self, pos):
+        if self.phase == "HALTED":
+            config.screen.fill((20, 20, 25))
+            msg1 = "ゲームを終了しました" if config.LANG == "JP" else "Game Terminated."
+            msg2 = "ブラウザのタブを閉じてください" if config.LANG == "JP" else "Please close the browser tab."
+            t1 = config.font_large.render(msg1, True, config.TEXT_COLOR)
+            t2 = config.font_mid.render(msg2, True, config.TEXT_COLOR)
+            config.screen.blit(t1, ((config.SCREEN_WIDTH - t1.get_width()) // 2, config.SCREEN_HEIGHT // 2 - config.S(50)))
+            config.screen.blit(t2, ((config.SCREEN_WIDTH - t2.get_width()) // 2, config.SCREEN_HEIGHT // 2 + config.S(30)))
+            return
+
         config.screen.fill(config.BG_COLOR)
 
         if self.phase == "TITLE":
