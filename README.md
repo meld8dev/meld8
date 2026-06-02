@@ -10,7 +10,7 @@ Meld8は、通常のトランプを用いた麻雀風のオリジナル・メル
 本リポジトリでは、Meld8のルールに準拠し、コンピューター（CPU）と対戦できるゲームのソースコードを公開しています。本システムはPythonおよびPygameで開発されており、pygbagを用いてWebAssemblyにコンパイルすることで、ブラウザ上で動作するWebアプリケーションとして配信しています。
 
 ### 配信URL
-[]
+[https://meld8dev.github.io/meld8/]
 
 ---
 
@@ -101,7 +101,7 @@ Meld8 is an original Mahjong-style meld game played with standard playing cards.
 This repository contains the source code for the game, built with Python (Pygame) and compiled into a WebAssembly browser app using pygbag.
 
 ### Deployment URL
-[Replace this link with your actual GitHub Pages URL]
+[https://meld8dev.github.io/meld8/]
 
 ---
 
