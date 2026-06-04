@@ -26,7 +26,7 @@ Meld8は、トランプを用いた麻雀風のメルドゲームです（ルー
 ### 公式ルール詳細
 
 役の一覧、Jokerの制限、点数計算および対人戦・2人プレイ用の補足ルールについては、以下の公式ルールブックを参照してください。
-* meld8_official_rules_v100.ja.md （本リポジトリ内に同梱）
+* [meld8_official_rules_v100.ja.md](https://meld8dev.github.io/meld8/meld8_official_rules_v100.ja) （本リポジトリ内に同梱）
 
 ### 技術スタック
 
@@ -110,7 +110,7 @@ Meld8 combines the deep strategy of Mahjong with the unique properties of playin
 ### Official Rules
 
 For a complete list of Yaku (winning patterns), Joker restrictions, and scoring mechanics, please refer to the official rulebook:
-* meld8_official_rules_v100.md (Included in this repository)
+* [meld8_official_rules_v100.md](https://meld8dev.github.io/meld8/meld8_official_rules_v100)(Included in this repository)
 
 ### Tech Stack
 
